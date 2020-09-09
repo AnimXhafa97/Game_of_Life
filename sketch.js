@@ -33,23 +33,11 @@ function setup() {
     }
   }
 
-  for (let i = 0; i < cols; i++) {
-    for (let j = 0; j < rows; j++) {
-      if (world[i][j] == 1) {
-
-        fill(255)
-        stroke(0)
-        rect(width/rows*j, height/cols*i, width/rows, height/cols)
-      }
-    }
-  }
-
   //glidergun()
 
   //on mouseclick, turn the clicked 0s into 1s
 
 
-  noLoop()
 
 }
 
@@ -116,7 +104,7 @@ function mouseClicked() {
   else {
     world[Math.round(mouseY*(cols/height))][Math.round(mouseX*(rows/width))] = 1
   }
-  
+
   console.log("MouseX: " + Math.round(mouseX*rows/width));
   console.log("MouseY: " + Math.round(mouseY*cols/height));
 }
@@ -184,6 +172,14 @@ function randomConfig() {
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
       world[i][j] = floor(random(2));
+    }
+  }
+}
+
+function terminate() {
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      world[i][j] = 0;
     }
   }
 }
